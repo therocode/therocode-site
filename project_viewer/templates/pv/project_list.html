@@ -1,0 +1,12 @@
+{% if project_list %}
+<ul>
+	{% for project in project_list %}
+	<li>{{ project.title }}</li>
+	{% for image in project.projectimage_set.all %}
+		<img src="{{ image.image.url }}">
+	{% endfor %}
+	{% endfor %}
+</ul>
+{% else %}
+<p>No projects are available.</p>
+{% endif %}
