@@ -17,17 +17,17 @@
 			<p>Tools: {{ project.skills.all | join:", " }}</p>
 			{% if project.site %}
 			<div>
-				<a href="{{ project.site }}">Homepage</a>
+				<a href="{{ project.site }}" target="_blank">Homepage</a>
 			</div>
 			{% endif %}
 			{% if project.source %}
 			<div>
-				<a href="{{ project.source }}">Source</a>
+				<a href="{{ project.source }}" target="_blank">Source</a>
 			</div>
 			{% endif %}
 			{% if project.demo %}
 			<div>
-				<a href="{{ project.demo }}">Live demo</a>
+				<a href="{{ project.demo }}" target="_blank">Live demo</a>
 			</div>
 			{% endif %}
 			{% for image in project.projectimage_set.all %}
