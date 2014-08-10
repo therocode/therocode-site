@@ -1,12 +1,36 @@
 {% if project_list %}
-<ul>
 	{% for project in project_list %}
-	<li>{{ project.title }}</li>
-	{% for image in project.projectimage_set.all %}
-		<img src="{{ image.image.url }}">
+		<h2>{{ project.title }}</h2>
+
+		<p>Created {{ project.creation_date|date:"M Y" }}</p>
+		{% if project.finish_date %}
+		<p>Completed {{ project.finish_date|date:"M Y" }}</p>
+		{% else %}
+		<p>In progress</p>
+		{% endif %}
+
+		<p>{{ project.description }}</p>
+
+		<p>Tools: {{ project.skills.all | join:", " }}</p>
+		{% if project.site %}
+		<div>
+			<a href="{{ project.site }}">Homepage</a>
+		</div>
+		{% endif %}
+		{% if project.source %}
+		<div>
+			<a href="{{ project.source }}">Source</a>
+		</div>
+		{% endif %}
+		{% if project.demo %}
+		<div>
+			<a href="{{ project.demo }}">Live demo</a>
+		</div>
+		{% endif %}
+		{% for image in project.projectimage_set.all %}
+		<img src="{{ image.image.url }}" alt="{{ image.image_text }}">
+		{% endfor %}
 	{% endfor %}
-	{% endfor %}
-</ul>
 {% else %}
 <p>No projects are available.</p>
 {% endif %}
