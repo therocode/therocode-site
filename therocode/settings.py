@@ -84,3 +84,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = '/home/tobbe/projects/django/therocode/therocode-site/media/'
 MEDIA_URL = '/media/'
+
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
